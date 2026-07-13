@@ -1,0 +1,19 @@
+@* razor component *@
+
+
+    <div class="hello">
+        <div class="about-hello">
+            <div class="text-center mb-5">
+                <p class="lead text-secondary">
+                   xin chao, @name
+                </p>
+            </div>
+          
+          
+        </div>
+    </div>
+    @code{
+        
+        [Parameter]
+        public string? name { get; set; }
+    }

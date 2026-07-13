@@ -1,0 +1,27 @@
+@inherits LayoutComponentBase
+
+<div class="d-flex min-vh-100">
+    <aside class="bg-dark text-white p-3" style="width: 250px;">
+        <h4 class="mb-4">Admin</h4>
+
+        <nav class="nav flex-column">
+            <NavLink class="nav-link text-white" href="/admin">
+                Dashboard
+            </NavLink>
+
+            <NavLink class="nav-link text-white" href="/admin/users">
+                Người dùng
+            </NavLink>
+        </nav>
+    </aside>
+
+    <main class="flex-grow-1 bg-light">
+        <header class="bg-white border-bottom p-3">
+            <h5 class="mb-0">Trang quản trị</h5>
+        </header>
+
+        <div class="p-4">
+            @Body
+        </div>
+    </main>
+</div>

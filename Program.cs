@@ -3,35 +3,43 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-//build ra cac tham so dong lenh, doc tham so tu appsetting
+
+// builder ra cacs tham so dong lenh, doc tham so tu appseting,..
 var builder = WebApplication.CreateBuilder(args);
 
-
-// muon code brazor trong C# thi bat 2 thang nay len
+// đăng ký razor để dùng trang chủ của _host
+//  và blazorserver kích hoạt signalR , 
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
-//dk cac dich vu
+
+// Đăng kí các dịch vụ 
 var app = builder.Build();
-//kiem tra xem co phai cdang chay loca hay khong
-if (app.Environment.IsDevelopment())
+
+// kiểm tra xem co phai đang chạy local hay khong
+if (app.Environment.IsDevelopment()) 
 {
     app.UseDeveloperExceptionPage();
 }
-else//moi truong deloy
+else // mooi truong deploy : 
 {
     app.UseExceptionHandler("/Error");
     app.UseHsts();
 }
-//locaolhost5000->5001
-//app.UseHttpsRedirection();//cmt dong nay lai co the chay bang port 5000
+
+// http:localhost:5000 -> https:5001
+// app.UseHttpsRedirection();
 app.UseStaticFiles();
-//bat dinh tuyen trong app
+//bật định tuyến trong App
 app.UseRouting();
 
-//SinnalR
+//signalR
 app.MapBlazorHub();
-//neu khong khpo voi page nao thi chuyen vehost de xu ly
+// nếu không khớp với page nào thì chuyển về _host để xử lý
 app.MapFallbackToPage("/_Host");
 
+// fetch . /check 
+
+///
+/// khởi chạy
 app.Run();
 

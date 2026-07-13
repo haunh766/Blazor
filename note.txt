@@ -1,0 +1,29 @@
+- dotnet new blazorserver2 -n buoi18
+- đổi buoi18.csproj từ netcore3.1 ->      <TargetFramework>net10.0</TargetFramework>
+
+- xoá các file trong folder Shared
+- xoá Data
+- xoá Counter, Error, FetchData
+- xoá startup
+- chỉnh lại program 
+- chỉnh app.razor
+- chỉnh host
+- chỉnh index.razor
+- chỉnh _import
+
+
+ Blazor , razor
+ - razor : cú pháp code html + css + c# (cshtml)
+    html + css + code c# (thay cho js ở FE khác)
+ - Blazor phát triển trên nền của razor
+    - blazorserver:   khác mô hình MVC
+        code chạy trên server
+    - blazoewasm:
+        code chạy trên browser
+
+
+
+LAYOUT
+ - Nếu page không có @layout -> dùng mainLayout( cấu hình trong app)
+ - page có @layout AdminLayout -> dùng AdminLayout
+ - DefaultLayout chỉ được dùng khi page không có @layout riêng

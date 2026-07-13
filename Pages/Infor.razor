@@ -1,0 +1,35 @@
+@page "/infor"
+@* https://localhost:5001/infor?name=nga&age=10 *@
+@page "/gioi-thieu"
+
+@* multi routes *@
+
+<div class="container">
+
+
+    <div class="infor">
+        <div class="infor-content">
+            <div class="text-center mb-5">
+                <h1 class="display-4 fw-bold text-info">Infor</h1>
+                <p class="lead text-secondary">
+                    Nội dung của page Infor.
+                </p>
+            </div>
+
+        </div>
+    </div>
+    <p>@name</p>
+    <p>@age</p>
+</div>
+
+@* https://localhost:5001/infor?name=nga&age=10 *@
+@code {
+
+    [Parameter]
+    [SupplyParameterFromQuery(Name="name")]
+    public string name { get; set; }
+    @* ? de o kieu du lieu, khong dat truoc bien *@
+    [Parameter]
+    [SupplyParameterFromQuery(Name="age")]
+    public int age { get; set; }
+}

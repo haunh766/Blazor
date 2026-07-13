@@ -30,8 +30,56 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQWJvdXQucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
+[/Users/nguyenhuuhau/Crybersoft/NET07/B18/buoi18/Pages/Admin/Admin.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQWRtaW4vQWRtaW4ucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/nguyenhuuhau/Crybersoft/NET07/B18/buoi18/Pages/Admin/Setting.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQWRtaW4vU2V0dGluZy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/nguyenhuuhau/Crybersoft/NET07/B18/buoi18/Pages/Admin/User.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQWRtaW4vVXNlci5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/nguyenhuuhau/Crybersoft/NET07/B18/buoi18/Pages/Admin/_Imports.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQWRtaW4vX0ltcG9ydHMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/nguyenhuuhau/Crybersoft/NET07/B18/buoi18/Pages/Contact.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQ29udGFjdC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/nguyenhuuhau/Crybersoft/NET07/B18/buoi18/Pages/Hello.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvSGVsbG8ucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
 [/Users/nguyenhuuhau/Crybersoft/NET07/B18/buoi18/Pages/Index.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXMvSW5kZXgucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/nguyenhuuhau/Crybersoft/NET07/B18/buoi18/Pages/Infor.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvSW5mb3IucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/nguyenhuuhau/Crybersoft/NET07/B18/buoi18/Pages/Product.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvUHJvZHVjdC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/nguyenhuuhau/Crybersoft/NET07/B18/buoi18/Shared/AdminLayout.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkL0FkbWluTGF5b3V0LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/nguyenhuuhau/Crybersoft/NET07/B18/buoi18/Shared/Footer.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkL0Zvb3Rlci5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/nguyenhuuhau/Crybersoft/NET07/B18/buoi18/Shared/MainLayout.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkL01haW5MYXlvdXQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/nguyenhuuhau/Crybersoft/NET07/B18/buoi18/Shared/NavMenu.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkL05hdk1lbnUucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
 [/Users/nguyenhuuhau/Crybersoft/NET07/B18/buoi18/_Imports.razor]

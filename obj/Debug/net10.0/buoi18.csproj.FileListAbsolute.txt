@@ -75,3 +75,4 @@
 /Users/nguyenhuuhau/Crybersoft/NET07/B18/buoi18/obj/Debug/net10.0/buoi18.pdb
 /Users/nguyenhuuhau/Crybersoft/NET07/B18/buoi18/obj/Debug/net10.0/buoi18.genruntimeconfig.cache
 /Users/nguyenhuuhau/Crybersoft/NET07/B18/buoi18/obj/Debug/net10.0/ref/buoi18.dll
+/Users/nguyenhuuhau/Crybersoft/NET07/B18/buoi18/obj/Debug/net10.0/buoi18.sourcelink.json

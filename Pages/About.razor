@@ -1,0 +1,39 @@
+@page "/about/{text:int?}"
+
+<div class="container">
+    
+
+    <div class="about">
+        <div class="about-content">
+            <div class="text-center mb-5">
+                <h1 class="display-4 fw-bold text-primary">About</h1>
+                <p class="lead text-secondary">
+                    Nội dung của page about.
+                </p>
+            </div>
+            <p>@name</p>
+            @* biến name trong c# ở @code sẽ được hiển thị chỗ này *@
+
+            <p>Param in url : @text</p>
+            @* <p>Param in url : @status</p> *@
+        </div>
+
+        <Hello name="HAI"/>
+        <Hello name="hau"/>
+              
+    </div>
+</div>
+
+@code{
+    @* cho C3 biet tham so nay *@
+        [Parameter]
+        public int? text { get; set; }=null;
+        public string? status { get; set; }
+
+
+        string name="Huu Hau";
+    void demo(){
+        Console.WriteLine($"{name}");
+    }
+}
+

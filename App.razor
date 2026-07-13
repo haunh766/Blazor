@@ -1,6 +1,6 @@
 ﻿<Router AppAssembly="@typeof(Program).Assembly">
     <Found Context="routeData">
-        <RouteView RouteData="@routeData" />
+        <RouteView DefaultLayout="typeof(MainLayout)" RouteData="@routeData" />
     </Found>
     <NotFound>
             <p>Sorry, there's nothing at this address.</p>

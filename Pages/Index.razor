@@ -1,9 +1,16 @@
 ﻿@page "/"
 @* "/" : localhost:5000 *@
 
-<h1 class="text-center">Hello, world!</h1>
+
+
+
+
+
+
+
+@* <h1 class="text-center">Hello, world!</h1>
 <p class="text-center">text demo</p>
-<p class="text-center">text demo 2</p>
+<p class="text-center">text demo 2</p> *@
 @* BỘ màu của bootstrap
 - success : xanh lá
 - primary : xanh dương
@@ -21,7 +28,7 @@
 - alert- => box có màu tương ứng (style dạng thông báo)
 - link-, badge bg-, table-, list-group-item-
 *@
-
+@* 
 <p class="text-primary">Primary</p>
 <p class="text-primary text-opacity-25">Primary</p>
 <p class="text-primary text-opacity-50">Primary</p>
@@ -33,9 +40,9 @@
 <p class="text-success">success</p>
 <p class="text-dark">dark</p>
 <p class="text-info">info</p>
-<p class="text-light bg-dark">light</p>
+<p class="text-light bg-dark">light</p> *@
 
-@* *@
+@* 
 <div class="bg-primary p-5"></div>
 <div class="bg-info p-5"></div>
 <div class="bg-secondary p-5"></div>
@@ -47,15 +54,15 @@
 <div class="bg-success bg-opacity-25 p-5"></div>
 <div class="bg-success bg-opacity-50 p-5"></div>
 <div class="bg-success bg-opacity-75 p-5"></div>
-<div class="bg-success bg-opacity-100 p-5"></div>
+<div class="bg-success bg-opacity-100 p-5"></div> *@
 
 @* border *@
-<div class="p-3 m-2 border border-primary"></div>
+@* <div class="p-3 m-2 border border-primary"></div>
 <div class="p-5 m-2 border border-info"></div>
 <div class="p-5 m-2 border border-succes"></div>
 <div class="p-5 m-2 border border-danger"></div>
 <div class="p-5 m-2 border border-warning"></div>
-<div class="p-5 m-2 border border-warning border-opacity-50"></div>
+<div class="p-5 m-2 border border-warning border-opacity-50"></div> *@
 @* vẫn là border-opacity-25, border-opacity-50, border-opacity-75, border-opacity-100 để điều chỉnh màu cho nhạt *@
 
 @* padding , margin
@@ -68,7 +75,7 @@ py, px: trục y hooac x, y : trên dưới , x: trái phải
  *@
 
 @* button *@
-<button class="btn btn-primary m-3">submit</button>
+@* <button class="btn btn-primary m-3">submit</button>
 <button class="btn btn-warning m-3">submit</button>
 <button class="btn btn-danger m-3">submit</button>
 <button class="btn btn-success m-3">submit</button>
@@ -78,22 +85,22 @@ py, px: trục y hooac x, y : trên dưới , x: trái phải
 <button class="btn btn-outline-warning m-3">submit</button>
 <button class="btn btn-outline-danger m-3">submit</button>
 <button class="btn btn-outline-success m-3">submit</button>
-<button class="btn btn-outline-primary m-3">submit</button>
+<button class="btn btn-outline-primary m-3">submit</button> *@
 
 @* alert *@
-<div class="alert alert-primary m-4"> ℹ Thông báo</div>
+@* <div class="alert alert-primary m-4"> ℹ Thông báo</div>
 <div class="alert alert-danger m-4"> ℹ Thông báo</div>
 <div class="alert alert-success m-4"> ℹ Thông báo</div>
-<div class="alert alert-warning m-4"> ℹ Thông báo</div>
+<div class="alert alert-warning m-4"> ℹ Thông báo</div> *@
 
 @* badge *@
-<span class="badge bg-primary m-2">primary</span>
+@* <span class="badge bg-primary m-2">primary</span>
 <span class="badge bg-danger m-2">danger</span>
 <span class="badge bg-success m-2">success</span>
-<span class="badge bg-warning bg-opacity-25 m-2">warning</span>
+<span class="badge bg-warning bg-opacity-25 m-2">warning</span> *@
 
 @* list-group-item *@
-<ul>
+@* <ul>
     <li class="list-group-item list-group-item-primary">primary</li>
 
     <li class="list-group-item list-group-item-success">success</li>
@@ -101,7 +108,7 @@ py, px: trục y hooac x, y : trên dưới , x: trái phải
     <li class="list-group-item list-group-item-danger">danger</li>
 
     <li class="list-group-item list-group-item-warning">warning</li>
-</ul>
+</ul> *@
 
 @*
 bo góc : rounded, rounded-1 -> 5, rounded-circle
@@ -113,86 +120,23 @@ justify-content
 align-items
  *@
 
-<div class="d-flex justify-content-around align-items-center">
+@* <div class="d-flex justify-content-around align-items-center">
     <div class="p-5 bg-info m-2"></div>
     <div class="p-3 bg-info m-2"></div>
     <div class="p-5 bg-info m-2"></div>
     <div class="p-1 h-50 bg-info m-2"></div>
-</div>
+</div> *@
 
 
-@* grid *@
-<div class="row">
-    @* 1 dòng chia thành 12 col *@
-    @* 12/4 = 3 => môi ô chiếm 3 col *@
-    <div class="col-4 py-3 bg-success">1</div>
-    <div class="col-4 py-3 bg-secondary">2</div>
-    <div class="col-5 py-3 bg-success">3</div>
-    <div class="col-4 py-3 bg-secondary">4</div>
-</div>
 
-@* break point của bss *@
 
-<div class="row mt-5 g-5">
-    @* 1 dòng chia thành 12 col *@
-    @* 12/4 = 3 => môi ô chiếm 3 col *@
-    @* col-xl-3 : màn từ 1200 tro len sẽ chia col-3 *@
-    <div class="col-12 col-xl-3 col-lg-4 col-md-6 col-sm-12 py-3 border border-success">1</div>
-    <div class="col-12 col-xl-3 col-lg-4 col-md-6 col-sm-12 py-3 border">2</div>
-    <div class="col-12 col-xl-3 col-lg-4 col-md-6 col-sm-12 py-3 border border-success">3</div>
-    <div class="col-12 col-xl-3 col-lg-4 col-md-6 col-sm-12 py-3 border">4</div>
-</div>
 
-@*  align-items-lg-center *@
 
 
 @* bs5-nav-tabs *@
 <!-- Nav tabs -->
-<ul class="nav nav-tabs" id="myTab" role="tablist">
-    <li class="nav-item" role="presentation">
-        <button
-            class="nav-link active"
-            id="home-tab"
-            data-bs-toggle="tab"
-            data-bs-target="#hello"
-            type="button"
-            role="tab"
-            aria-controls="home"
-            aria-selected="true"
-        >
-            Home
-        </button>
-    </li>
-    <li class="nav-item" role="presentation">
-        <button
-            class="nav-link"
-            id="profile-tab"
-            data-bs-toggle="tab"
-            data-bs-target="#profile"
-            type="button"
-            role="tab"
-            aria-controls="profile"
-            aria-selected="false"
-        >
-            Profile
-        </button>
-    </li>
-    <li class="nav-item" role="presentation">
-        <button
-            class="nav-link"
-            id="messages-tab"
-            data-bs-toggle="tab"
-            data-bs-target="#messages"
-            type="button"
-            role="tab"
-            aria-controls="messages"
-            aria-selected="false"
-        >
-            Messages
-        </button>
-    </li>
-</ul>
 
+@* 
 <!-- Tab panes -->
 <div class="tab-content">
     <div
@@ -296,7 +240,7 @@ align-items
         </div>
     </div>
 </div>
-
+ *@
 
 
 <br><br><br><br><br><br>
