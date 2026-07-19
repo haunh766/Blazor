@@ -1,13 +1,54 @@
 @namespace buoi18.Shared
-<nav
-    class="nav justify-content-center  "
->
-    <a class="nav-link active" href="/" aria-current="page">Home</a>
-    <a class="nav-link" href="/infor">Infor</a>
-    <a class="nav-link" href="/about">About</a>
-    <a class="nav-link" href="/contact">Contact</a>
-    <a class="nav-link" href="/product">Product</a>
-    <a class="nav-link" href="/admin">Amin</a>
 
+<nav class="nav justify-content-center  ">
+    @* kiem tra @page khớp với href 100% thì thêm class text-danger vào cho các navlink tuong ứng *@
+    @* NavLinkMatch.All: url phải khớp toàn bộ thì mới active
+    NavLinkMatch.Prefix : khớp phần đầu là được active
+    /about 
+    /about/12 
+    /about/12/hello
+    /abo/12/hello
+    
+     *@
+    
+    <NavLink class="nav-link" activeClass="active-nav text-danger" Match="NavLinkMatch.All" href="/" aria-current="page">Home
+    </NavLink>
+    <NavLink class="nav-link" activeClass="active-nav text-danger" Match="NavLinkMatch.All" href="/infor?name=nga">Infor
+    </NavLink>
+    <NavLink class="nav-link" activeClass="active-nav text-danger" Match="NavLinkMatch.Prefix" href="/about">About</NavLink>
+    <NavLink class="nav-link" activeClass="active-nav text-danger" Match="NavLinkMatch.All" href="/contact">Contact</NavLink>
+    <NavLink class="nav-link" activeClass="active-nav text-danger" Match="NavLinkMatch.All" href="/product">PRODUCTS</NavLink>
+    <NavLink class="nav-link" activeClass="active-nav text-danger" Match="NavLinkMatch.All" href="/admin">adminS</NavLink>
+  <li class="nav-item dropdown">
+        <NavLink
+        ActiveClass="active-nav text-danger" Match="NavLinkMatch.Prefix"
+            class="nav-link dropdown-toggle"
+            data-bs-toggle="dropdown"
+            href="/component"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+            >Component</NavLink>
+        <div class="dropdown-menu">
+            <NavLink ActiveClass="active-nav text-danger" Match="NavLinkMatch.All" class="dropdown-item" href="/component/parent">Parent</NavLink>
+        </div>
+    </li>
+    <li class="nav-item dropdown">
+        <NavLink
+        ActiveClass="active-nav text-danger" Match="NavLinkMatch.Prefix"
+            class="nav-link dropdown-toggle"
+            data-bs-toggle="dropdown"
+            href="/oneway"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+            >oneway</NavLink>
+        <div class="dropdown-menu">
+            <NavLink ActiveClass="active-nav text-danger" Match="NavLinkMatch.All" class="dropdown-item" href="/oneway/couter">Couter</NavLink>
+                 <NavLink ActiveClass="active-nav text-danger" Match="NavLinkMatch.All" class="dropdown-item" href="/oneway/product">product</NavLink>
+
+        </div>
+    </li>
+   
 
 </nav>

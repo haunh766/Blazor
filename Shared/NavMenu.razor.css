@@ -1,0 +1,11 @@
+.nav-link.active-nav{
+    /* color: blue; */
+    font-weight: 700;
+    text-decoration: solid;
+}
+.active-nav{
+    /* color: blue; */
+    font-weight: 700;
+    text-decoration: solid;
+}
+/*  biên dịc và để trong file ten_project.styles.css */

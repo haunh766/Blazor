@@ -1,0 +1,23 @@
+  @page "/oneway/couter"
+  <div class="hello">
+        <div class="about-hello">
+            <div class="text-center mb-5">
+                <p class="lead text-secondary">
+                one way binding
+                </p>
+              
+            </div>
+            <p>@number</p>
+            <button class="btn btn-outline-primary"
+            @onclick="Tang"
+            >Tang</button>
+          
+          
+        </div>
+    </div>
+    @code{
+        public int number=0;
+        private void Tang()=>number++;
+
+        
+    }

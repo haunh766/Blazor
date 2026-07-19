@@ -27,3 +27,10 @@ LAYOUT
  - Nếu page không có @layout -> dùng mainLayout( cấu hình trong app)
  - page có @layout AdminLayout -> dùng AdminLayout
  - DefaultLayout chỉ được dùng khi page không có @layout riêng
+
+
+ Oneway
+    -hien thi code C#=> UI
+    -State trong C# khi co gia tri thay doi => UI thay doi
+    - Su kien onclick => thay doi state => UI thay doi
+TWOWAY

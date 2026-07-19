@@ -1,0 +1,26 @@
+@page   "/oneway/lst-product"
+
+<div class="row container mx-auto">
+    @foreach (var sp in lstProduct)
+    {
+        <div class="col-4 py-5">
+            <div class="card text-start">
+                <img class="card-img-top " src="https://picsum.photos/id/1/200" alt="Title" />
+                <div class="card-body">
+                    <h4 class="card-title">@sp.id - @sp.name</h4>
+                    <p class="card-text">@sp.price</p>
+                </div>
+            </div>
+
+        </div>
+    }
+
+</div>
+
+@code{
+public List<ProductView> lstProduct = new List<ProductView>(){
+        new ProductView("SP001", "IP 18", 20000),
+        new ProductView("SP002", "IP 17", 20000),
+        new ProductView("SP003", "IP 16", 20000)
+        };
+}

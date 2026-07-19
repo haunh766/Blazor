@@ -3,8 +3,8 @@
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "http://localhost:12107",
-      "sslPort": 44345
+      "applicationUrl": "http://localhost:34694",
+      "sslPort": 44321
     }
   },
   "profiles": {
@@ -16,10 +16,10 @@
       }
     },
     "buoi18": {
-       "request": "launch",
-      "dotnetRunMessages": "true",
+      "commandName": "Project",
+      "dotnetRunMessages": true,
       "launchBrowser": true,
-      "applicationUrl": "https://localhost:5001;http://localhost:5000",
+      "applicationUrl": "https://localhost:5069;http://localhost:5070",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }

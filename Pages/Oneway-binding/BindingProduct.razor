@@ -1,0 +1,22 @@
+@page "/oneway/product"
+
+@* code html hiển thông tin sp *@
+
+
+@* @prod.id *@
+<div class="col-4 py-5">
+    <div class="card text-start">
+        <img class="card-img-top " src="https://picsum.photos/id/1/200" alt="Title" />
+        <div class="card-body">
+            <h4 class="card-title">@prod.id - @prod.name</h4>
+            <p class="card-text">@prod.price</p>
+        </div>
+    </div>
+    
+</div>
+
+@code {
+   
+
+    private ProductView prod = new ProductView("SP001", "IP 18", 20000);
+}
