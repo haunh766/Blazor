@@ -1,0 +1,37 @@
+@page "/baitap/change-car"
+
+
+<div class="container">
+    <div class="row align-items-center">
+        <div class="col-6">
+            <img src="@imgUrl" width="100%" alt="">
+        </div>
+        <div class="col-6 ">
+            @*  triển khai thành vòng lặp cho bài tập về nhà  *@
+            <button class="btn" @onclick='() => changeCar("black")'>
+                <img style="width:50px;height:50px" src="CarBasic/icons/icon-black.jpg" alt="">
+            </button>
+            <button class="btn"  @onclick='() => changeCar("red")'>
+                <img style="width:50px;height:50px" src="CarBasic/icons/icon-red.jpg" alt="">
+            </button>
+            <button class="btn"  @onclick='() => changeCar("silver")'>
+                <img style="width:50px;height:50px" src="CarBasic/icons/icon-silver.jpg" alt="">
+            </button>
+            <button class="btn" @onclick='() => changeCar("steel")'>
+                <img style="width:50px;height:50px" src="CarBasic/icons/icon-steel.jpg" alt="">
+            </button>
+        </div>
+    </div>
+</div>
+@* để ui thay doi -> state thay doi *@
+@code{
+    // class Car(tên , hình ảnh(url) , icon (url))
+    private string imgUrl = "CarBasic/products/black-car.jpg";
+    // hàm thay doi imgUrl
+    private void changeCar(string color){
+        // color = "black" -> CarBasic/products/black-car.jpg
+        string before = "CarBasic/products/";
+        string after = "-car.jpg";
+        imgUrl = before + color+ after;
+    }
+}

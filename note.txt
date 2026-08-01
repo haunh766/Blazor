@@ -34,3 +34,33 @@ LAYOUT
     -State trong C# khi co gia tri thay doi => UI thay doi
     - Su kien onclick => thay doi state => UI thay doi
 TWOWAY
+ - EditForm Model="@model"
+    - Editform kêt hợp model binding
+    - OnInvalidSubmit="fail" OnValidSubmit="success"
+
+
+
+    Các bước tạo Editform có xác thực trong Blazor
+    - class model(RegisterVM, loginVM, ProductCreate,...)
+    - tạo form với editform và gán model bằng instance tương ứng
+    - viết hàm xử lý input(input đặc biệt radio, checkbox, select) 
+    - Bật <DataAnnotationsValidator /> để kích hoạt xác thực
+    -  <ValidationMessage For="..."/> để hiển thị lỗi cho từng trường
+Các cái kiểm tra phổ biến 
+    - [Required]: Không được để trống
+    - [EmailAddress]: Email phải đúng định dạng
+    - [Range(min, max)]: Giá trị phải nằm trong khoảng cho phép
+    - [StringLength(max)]: Độ dài chuỗi tối đa
+    - [RegularExpression]: Theo mẫu quy định
+    - min., max ....
+
+
+REF:
+    chua can dieu khien, can thiep vao state/ noi bo cua thang Con.
+    khi co thay doi state thi StateHasChanged vi su kien goi o cha khac vong doi
+  
+=========================
+async await task :
+    - code bat dong bo
+Task: khi chay xong oc ket qua => Task & Task<T>
+    -Task: kdl dai dien cho tac vu chay bat dong bo

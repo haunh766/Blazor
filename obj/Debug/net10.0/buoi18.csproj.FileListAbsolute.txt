@@ -78,5 +78,6 @@
 /Users/nguyenhuuhau/Crybersoft/NET07/B18/buoi18/obj/Debug/net10.0/buoi18.sourcelink.json
 /Users/nguyenhuuhau/Crybersoft/NET07/B18/buoi18/obj/Debug/net10.0/scopedcss/Shared/NavMenu.razor.rz.scp.css
 /Users/nguyenhuuhau/Crybersoft/NET07/B18/buoi18/obj/Debug/net10.0/scopedcss/projectbundle/buoi18.bundle.scp.css
-/Users/nguyenhuuhau/Crybersoft/NET07/B18/buoi18/obj/Debug/net10.0/compressed/6h5h0t1z2q-{0}-blm6zgpj5k-blm6zgpj5k.gz
-/Users/nguyenhuuhau/Crybersoft/NET07/B18/buoi18/obj/Debug/net10.0/compressed/c5c98jbe9x-{0}-blm6zgpj5k-blm6zgpj5k.gz
+/Users/nguyenhuuhau/Crybersoft/NET07/B18/buoi18/obj/Debug/net10.0/scopedcss/Shared/Footer.razor.rz.scp.css
+/Users/nguyenhuuhau/Crybersoft/NET07/B18/buoi18/obj/Debug/net10.0/compressed/6h5h0t1z2q-{0}-sa47rpds9l-sa47rpds9l.gz
+/Users/nguyenhuuhau/Crybersoft/NET07/B18/buoi18/obj/Debug/net10.0/compressed/c5c98jbe9x-{0}-sa47rpds9l-sa47rpds9l.gz

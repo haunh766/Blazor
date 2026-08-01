@@ -1,0 +1,30 @@
+@page "/lifecycle/first/{id}"
+@using System.Net.Http.Json
+
+@inject HttpClient _httpClient
+
+
+
+
+@id
+<div class="row">
+    <div class="col-4">
+        <img class="w-100" src="@prod?.Img" alt="">
+    </div>
+    <div class="col-8">
+        Name: @prod?.Name
+    </div>
+</div>
+
+@code{
+[Parameter]
+    public string id {get;set;}
+
+    private ProductDto? prod;
+
+    //goi api de lay thong tin cua san pham
+    protected override async Task OnInitializedAsync(){
+         prod=await _httpClient.GetFromJsonAsync<ProductDto>("https://svcy.myclass.vn/api/ProductApi/get/{id}");
+
+    }
+}

@@ -1,0 +1,47 @@
+@*  hiẻn thi thong tin cua 1 chiec xe *@
+
+
+
+   <div class="card">
+        <img
+            class="card-img-top"
+            src="@item.Image"
+            alt="Card image cap"
+        />
+        <div class="card-body">
+            <h4 class="card-title">@item.Name</h4>
+            <p class="card-text">@item.Description - @item.Price</p>
+            <button class = "btn btn-outline-primary "
+             @onclick  = '()=> changeCarItem.InvokeAsync(item)'
+             data-bs-toggle="modal" data-bs-target="#modalId">View detail modal</button>
+       
+            <button class = "btn btn-outline-Secondary" 
+            @onclick="addToCartAsync"
+            >Add to cảrt</button>
+        </div>
+    </div>
+    
+
+    @*  *@
+
+
+
+
+
+@*  model car (Name, Price, Image, Desc) *@
+@code{
+    @* private CarItemVM carItem = new CarItemVM("Ô tô black",20000,"CarBasic/products/black-car.jpg","Xe ô tô màu đen"); *@
+    [Parameter]
+    public CarItemVM item {get;set;}
+    [Parameter]
+    @* Func<>
+    Action<> *@
+    public EventCallback<CarItemVM> changeCarItem {get; set;}
+
+[Parameter]
+public EventCallback<CarItemVM> addToCart{get;set;}
+    public async Task addToCartAsync(){
+        await addToCart.InvokeAsync(item);
+    }
+
+}

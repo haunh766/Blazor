@@ -1,4 +1,4 @@
-.nav-link.active-nav{
+::deep .nav-link.active-nav{
     /* color: blue; */
     font-weight: 700;
     text-decoration: solid;

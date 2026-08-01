@@ -7,7 +7,7 @@
             <h4>Register</h4>
             @* kích hoạt các thuộc tính validation đã định nghia trong class RegisterVM *@
                 @* gom các lội là hiển thị chung 1 chỗ *@
-             <EditForm Model="@model">
+             <EditForm Model="@model" OnInvalidSubmit="success" >
                 @* kích hoạt các thuộc tính validation đã định nghia trong class RegisterVM *@
                 <DataAnnotationsValidator />
                 @* gom các lội là hiển thị chung 1 chỗ *@
@@ -25,11 +25,59 @@
                 </div>
                 <div class="form-group">
                     <label>Phone</label>
-                    <input type="text" class="form-control" @bind="@model.Phone" @bind:event="oninput" />
+                    <input type="text" class="form-control" @bind="@model.Gender" @bind:event="oninput" 
+                   "
+                    />
                     <ValidationMessage class="text-danger" For="@(() => model.Phone)" />
 
                 </div>
-              
+                 @* gioi tinh - chọn 1 trong nhiều lựa chọn *@ 
+                <div class="form-group my-2">
+                        <label for="">Gender :</label>
+
+                        <input name="gender" class="form-check-input" id="male" type="radio" value="true" checked  @onchange="(e)=>changeGender(true)"">
+                        <label for="male" class="form-check-label">Male</label>
+                        
+                        <input name="gender" class="form-check-input" id="female" type="radio" value="false"  @onchange="(e)=>changeGender(false)"">
+                        <label for="female" class="form-check-label">Female</label>      
+                </div>
+
+                @* boi loi, doc sach xem phim .... *@
+                <p>Sở thích</p>
+                <div class="form-group">
+                    @* <input class="form-check-input" type="checkbox" value="1" id="" name="hobbies"/>
+                    <label class="form-check-label" for="">Bơi 1</label>
+                    <br>
+                    <input class="form-check-input" type="checkbox" value="2" id=""name="hobbies" />
+                    <label class="form-check-label" for="">Bơi 2</label>
+                    <br>
+                    <input class="form-check-input" type="checkbox" value="3" id="" name="hobbies"/>
+                    <label class="form-check-label" for="">Bơi 3</label> *@
+                    @foreach (string hob in lsHobby)
+                    {
+                        <div class="form-check">
+                             <input class="form-check-input" type="checkbox" value="@hob" id="@hob" name="hobbies" @onchange="(e) => changeHobbies(hob,e.Value)"/>
+
+                            <label class="form-check-label" for="@hob">@hob</label>
+                        </div>
+                    }
+                </div>
+                @* quoc gia *@
+                 <div class="form-group">
+                    <label for="">Country</label>
+
+                    <select name="" id="" class="form-select form-select-lg"
+                    @onchange="(e) => changeCountry(e.Value.ToString())" >
+                        <option value="">--Select one--</option>
+
+                        @foreach (string country in countries)
+                        {
+                            <option value="@country">@country</option>
+                        }
+                    </select>
+                </div>
+
+
                 <button class="btn btn-primary" type="submit">Đăng ký</button>
             </EditForm>
 
@@ -39,10 +87,47 @@
             <p>Username: @model.UserName</p>
             <p>Email:  @model.Email</p>
             <p>Phone: @model.Phone</p>
+            <p>Gender: @(model.Gender ? "Male":"Female")</p>
+            <p>Hobbies: @string.Join(", ", model.Hobby)</p>
+             <p>Country:@model.Country</p>
+
         </div>
     </div>
 </div>
 
 @code {
     public RegisterVM model = new RegisterVM();
+    public List<string> lsHobby = new List<string>() { "Bơi", "Đá bóng", "Cầu lông", "Chạy bộ", "Pickerpall" };
+
+    public List<string> countries = new List<string>() { "Việt Nam", "Mỹ", "Anh", "Pháp" };
+
+    //function changegender
+    public void changeGender(bool gender){
+        model.Gender=gender;
+    }
+    public void changeHobbies(string hob, object isCheck){
+         Console.WriteLine("[CHECK]"+ " " +isCheck);
+        // nếu chưa có thì thêm 
+        // ép kiểu object ->bool
+        if((bool)isCheck){
+            model.Hobby.Add(hob);
+        } else{
+            model.Hobby.Remove(hob);
+        }
+  string res = string.Join(", ", model.Hobby);
+        Console.WriteLine(res);
+
+    }
+    public void changeCountry(string country)
+    {
+        Console.WriteLine("[COUNTRY]: " + country);
+        model.Country = country;
+
+    }
+    public void success(){
+        Console.WriteLine("Thanh cong");
+    }
+     public void thatbai(){
+        Console.WriteLine("That bai");
+    }
 }

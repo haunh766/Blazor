@@ -1,0 +1,33 @@
+@page "/component/ref"
+@* 
+    <h4>cha goi component con de hien thi giao dien 
+
+*@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <ChildRef @ref="childRef"/>
+      
+        <button class="btn btn-warning" @onclick="ResetChild">Reset</button>
+          <button class="btn btn-danger" @onclick="Sub">Giam</button>
+
+    </div>
+</div>
+
+@code{
+    private ChildRef? childRef;
+  
+    private void ResetChild(){
+        Console.WriteLine("[Parent] - start");
+        childRef?.Reset();
+        Console.WriteLine("[Parent] - start " + childRef);
+    }
+
+
+@*  *@
+    private void Sub(){
+        childRef?.Sub();
+    }
+
+
+
+}
