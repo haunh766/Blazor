@@ -1,4 +1,5 @@
 @page "/lifecycle/param"
+@using buoi18.Pages.Lifecycle.dispose
 
 <div class="container">
     <h3>Parent - SetParameters</h3>
@@ -8,10 +9,23 @@
     <br>
 
     <Child_SetParam dto="@dto" />
+
+<button class="btn btn-success" @onclick="Toggle">
+    @(show? "ẩn": "hiện")
+</button>
+
+@if(show){
+    <DemoDispose/>
+}
 </div>
 
 @code {
-    private NameDto dto=new NameDto();
+    private NameDto dto = new NameDto();
+
+    private bool show = true;
+    void Toggle (){
+        show =!show;
+    }
 
 }
 

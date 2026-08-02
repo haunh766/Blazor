@@ -28,18 +28,15 @@ LAYOUT
  - page có @layout AdminLayout -> dùng AdminLayout
  - DefaultLayout chỉ được dùng khi page không có @layout riêng
 
-
- Oneway
-    -hien thi code C#=> UI
-    -State trong C# khi co gia tri thay doi => UI thay doi
-    - Su kien onclick => thay doi state => UI thay doi
-TWOWAY
- - EditForm Model="@model"
+ONEWAY
+    - hiển thị code c# -> UI
+    - state trong c# khi giá trị của nó thay đổi -> ui thay đổi
+    - khi bấm nut (onclick) -> thay đổi state -> ui thay đổi
+Twoway
+    - EditForm Model="@model"
     - Editform kêt hợp model binding
     - OnInvalidSubmit="fail" OnValidSubmit="success"
-
-
-
+    
     Các bước tạo Editform có xác thực trong Blazor
     - class model(RegisterVM, loginVM, ProductCreate,...)
     - tạo form với editform và gán model bằng instance tương ứng
@@ -53,14 +50,43 @@ Các cái kiểm tra phổ biến
     - [StringLength(max)]: Độ dài chuỗi tối đa
     - [RegularExpression]: Theo mẫu quy định
     - min., max ....
+EVENT CALLBACK
+    - Con muốn báo cho cha biết 1 sự kiện nào đó, action (nơi xảy ra sự kiện) nằm ở thằng con
 
 
-REF:
-    chua can dieu khien, can thiep vao state/ noi bo cua thang Con.
-    khi co thay doi state thi StateHasChanged vi su kien goi o cha khac vong doi
-  
-=========================
-async await task :
-    - code bat dong bo
-Task: khi chay xong oc ket qua => Task & Task<T>
-    -Task: kdl dai dien cho tac vu chay bat dong bo
+REF
+    - cha cần điều khiển , can thiệp vào state/nội bộ  của thằng con
+    - khi có thay đổi state thì nhớ StateHasChanged vì sự kiện gọi ở cha -> khác lifecycle nên cần thông báo
+
+
+Async await TAsk
+    - code bất đồng bộ
+Task và Task<T> : KDL đại diện cho tác vụ chyaj bdb
+    // giống promise : 
+
+
+Lifecycle
+- Oninit : OnInitialized / OnInitializedAsync 
+    - khi component vừa được khởi tạo 
+
+- Parram
+    - SetParametersAsync 
+        -  trước khi OnParametersSet, khi Blazor chuẩn bị gán các parameter cho component
+        - dungf khi muoons cna thiep thy doi thong tin param
+    - OnParametersSet / OnParametersSetAsync
+        - Là lifecycle method chạy sau khi các parameter đã được gán giá trị.
+        - Được gọi mỗi lần cha truyền giá trị mới cho component con, hoặc khi component con được khởi tạo.
+        - Thường dùng để xử lý logic phụ thuộc vào giá trị parameter (ví dụ: load dữ liệu, tính toán lại...).
+- Render
+    - ShouldRender: quyết định có render hay không
+        - Được gọi mỗi lần component chuẩn bị render.
+        - return true false để quyết định
+        - kiểm soat hiệu năng , chặn render không cần thiết
+    - OnAfterRender/OnAfterRenderAsync: sau khi đã có giao diện (dã render)
+        - Được gọi ngay sau khi component đã render xong UI lên DOM (hậu render)
+        - kết hợp js 
+        - có tham số first render 
+- dispose
+    - chạy trước khi tời khỏi component
+
+- SetParametersAsync -> OnInitialized -> OnParametersSet -> ShouldRender ----true--> Render ---> OnAfterRender ---> prram thay đổi ---> OnParametersSet --> ShouldRender ---> rời đi --> dispose
