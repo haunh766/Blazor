@@ -1,0 +1,117 @@
+@page "/baitap/student-manager"
+@using System.Net.Http.Json
+@* de su dung dc page title phai khai bao ben host , gan them menu*@
+<PageTitle>Quan ly sinh vien</PageTitle>
+@inject HttpClient _http
+@using buoi18.Service
+@inject IStudentApiService _studentApi
+
+<div class="container py-4">
+    <h1>Quan ly sinh vien</h1>
+    @* 1: student form *@
+    <h1 class="mb-4 text-center">Quản lý sinh viên</h1>
+    @if(message != null && message != ""){
+        // mafu xanh laf thanh , do la that bai , 
+        <div class="alert @(hasErorr ? "alert-danger":"alert-success")">@message</div>
+    }
+    @* studentform *@
+    <div class="card mb-4">
+        <div class="card-header fw-bold">
+            <h5 class="mb-0">Thêm sinh viên</h5>
+        </div>
+        <div class="card-body">
+            @* form *@
+            <StudentForm OnSubmit="SaveAsync" StudentToEdit="studentEdit" ResetForm="ResetForm"/>        </div>
+    </div>
+
+
+    @* studen list *@
+    <div class="card">
+ <div class="card-header fw-bold"><h5> Danh sach sinh vien</h5> </div>
+   <div class="card-body">
+         @* //hung sinh vien *@
+            <StudentList Students="@students"  OnEdit="BeginEdit" />
+
+
+        </div>
+
+   
+   
+    </div>
+
+</div>
+@code{
+    private string message = "";
+    private StudentDto studentEdit;
+    private bool hasErorr = false;
+    //1. Tao list hung studentDTo vua tao o model
+    private List<StudentDto> students=new List<StudentDto>();
+
+    //bat dau lay du lieu tu API
+    @* ham load du lieu tu server/api *@
+    private async Task LoadStudentAsync(){
+    @* dung http client *@
+    @* url *@
+    @* Vii no  khoi chay lan dau tien nen se chay trong OnIbnitlizeAsync *@
+    students=await _http.GetFromJsonAsync<List<StudentDto>>("https://svcy.myclass.vn/api/SinhVien/LayDanhSachSinhVien");
+     students.Reverse();
+    }
+
+    protected override async Task OnInitializedAsync(){
+        await LoadStudentAsync();
+    }
+
+    //btn them  sinh vien
+    private async Task SaveAsync(StudentDto newStudent){
+        
+        
+                       bool isEdit = studentEdit != null && studentEdit.MaSV == newStudent.MaSV;
+                var response = new HttpResponseMessage();
+                Console.WriteLine(isEdit ? "Cập nhật sinh viên: " : "Thêm sinh viên: " );
+                Console.WriteLine(newStudent.HoTen);
+                if(isEdit){
+                    response = await _http.PutAsJsonAsync("https://svcy.myclass.vn/api/SinhVien/CapNhatThongTinSinhVien", newStudent);
+                } else{
+                    // them moi
+                     response = await _studentApi.AddAsync(newStudent);
+
+                }
+
+
+            if(response.IsSuccessStatusCode){
+                @*  goi api thanh cong *@
+                Console.WriteLine(isEdit ? "Cập nhật sinh viên thành công." : "Thêm sinh viên thành công.");
+                message = isEdit ? "Cập nhật sinh viên thành công." : "Thêm sinh viên thành công.";
+                hasErorr = false;
+                studentEdit = null;
+                await LoadStudentAsync();
+            }
+            else{
+                @*  goij api that bai *@
+                Console.WriteLine("Lỗi khi thêm sinh viên: " + response.ReasonPhrase);
+                message = "Lỗi khi thêm/sửa sinh viên: " + response.ReasonPhrase;
+                hasErorr = true;
+            }
+
+    }
+    private void ResetMessage()
+        {
+            message = "";
+            hasErorr = false;
+        }
+        private void ResetForm()
+        {
+            studentEdit = null;
+            ResetMessage();
+        }
+         private void BeginEdit(StudentDto student)
+        {
+            ResetMessage();
+            studentEdit = student;
+        }
+    @* PUT *@
+
+
+
+
+}

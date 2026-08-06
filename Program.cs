@@ -15,6 +15,8 @@ builder.Services.AddServerSideBlazor();
 //HTTP CLIENT
 builder.Services.AddHttpClient();
 
+// DI SERVICE. *** RAT QUAN TRONG
+
 // Đăng kí các dịch vụ 
 var app = builder.Build();
 

@@ -90,3 +90,18 @@ Lifecycle
     - chạy trước khi tời khỏi component
 
 - SetParametersAsync -> OnInitialized -> OnParametersSet -> ShouldRender ----true--> Render ---> OnAfterRender ---> prram thay đổi ---> OnParametersSet --> ShouldRender ---> rời đi --> dispose
+
+
+ var response= await _http.PutAsJsonAsync("https://svcy.myclass.vn/api/SinhVien/ThemSinhVien",newStudent);
+        
+        if(response.IsSuccessStatusCode){
+                @*  goi api thanh cong *@
+                Console.WriteLine("Thêm sinh viên thành công!");
+                message = "Thêm sinh viên thành công!";
+                await LoadStudentAsync();
+            }
+            else{
+            @*  goij api that bai *@
+            Console.WriteLine("Lỗi khi thêm sinh viên: " + response.ReasonPhrase);
+            message = "Lỗi khi thêm sinh viên: " + response.ReasonPhrase;
+        }
