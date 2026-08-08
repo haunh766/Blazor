@@ -62,10 +62,19 @@
     }
 
     //btn them  sinh vien
-    private async Task SaveAsync(StudentDto newStudent){
-        
-        
-                       bool isEdit = studentEdit != null && studentEdit.MaSV == newStudent.MaSV;
+    // ham load du lieu tu server/api
+        private async Task LoadStudentsAsync(){
+            @*  dungf httpclient *@
+            @*  url : https://svcy.myclass.vn/api/SinhVien/LayDanhSachSinhVien *@
+            students = await _http.GetFromJsonAsync<List<StudentDto>>("https://svcy.myclass.vn/api/SinhVien/LayDanhSachSinhVien");
+            students.Reverse();
+
+
+        }
+    
+        // ham them sinh vien moi
+        private async Task SaveAsync(StudentDto newStudent){
+                bool isEdit = studentEdit != null && studentEdit.MaSV == newStudent.MaSV;
                 var response = new HttpResponseMessage();
                 Console.WriteLine(isEdit ? "Cập nhật sinh viên: " : "Thêm sinh viên: " );
                 Console.WriteLine(newStudent.HoTen);
@@ -84,7 +93,7 @@
                 message = isEdit ? "Cập nhật sinh viên thành công." : "Thêm sinh viên thành công.";
                 hasErorr = false;
                 studentEdit = null;
-                await LoadStudentAsync();
+                await LoadStudentsAsync();
             }
             else{
                 @*  goij api that bai *@
@@ -93,8 +102,24 @@
                 hasErorr = true;
             }
 
-    }
-    private void ResetMessage()
+        }
+        // xoas
+        private async Task DeleteAsync(string maSV){
+            var response = await _http.DeleteAsync($"https://svcy.myclass.vn/api/SinhVien/XoaSinhVien/{maSV}");
+            if(response.IsSuccessStatusCode){
+                await LoadStudentsAsync();
+
+                Console.WriteLine("Xóa sinh viên thành công.");
+                message = "Xóa sinh viên thành công.";
+                hasErorr = false;
+            } else{
+                Console.WriteLine("Lỗi khi xóa sinh viên: " + response.ReasonPhrase);
+                message = "Lỗi khi xóa sinh viên: " + response.ReasonPhrase;
+                hasErorr = true;
+            }
+        }
+       
+        private void ResetMessage()
         {
             message = "";
             hasErorr = false;
@@ -104,7 +129,7 @@
             studentEdit = null;
             ResetMessage();
         }
-         private void BeginEdit(StudentDto student)
+        private void BeginEdit(StudentDto student)
         {
             ResetMessage();
             studentEdit = student;

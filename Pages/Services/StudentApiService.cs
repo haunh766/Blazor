@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 
 namespace buoi18.Service;
 
-
 public interface IStudentApiService
 {
     Task<List<StudentDto>> GetAllAsync();
@@ -36,18 +35,18 @@ public class StudentApiService : IStudentApiService
         }
     }
 
-    // public Task<HttpResponseMessage> DeleteAsync(int id)
-    // {
-    //     throw new System.NotImplementedException();
-    // }
+    public Task<HttpResponseMessage> DeleteAsync(int id)
+    {
+        throw new System.NotImplementedException();
+    }
 
     public Task<List<StudentDto>> GetAllAsync()
     {
         throw new System.NotImplementedException();
     }
 
-    // public Task<HttpResponseMessage> UpdateAsync(StudentDto student)
-    // {
-    //     throw new System.NotImplementedException();
-    // }
+    public Task<HttpResponseMessage> UpdateAsync(StudentDto student)
+    {
+        throw new System.NotImplementedException();
+    }
 }

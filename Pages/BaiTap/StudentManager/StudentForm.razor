@@ -57,22 +57,25 @@
 
 </EditForm>
 @code{
-    private StudentDto formModel=new StudentDto();
-     private bool isEditing=>StudentToEdit!=null;
+    private StudentDto formModel = new StudentDto();
+
+    private bool isEditing => StudentToEdit != null;
+
     [Parameter]
-    public EventCallback<StudentDto> onSubmit {get;set;}
+    public EventCallback<StudentDto> OnSubmit { get; set; }
+    
     [Parameter]
-    public EventCallback ResetForm {get;set;}
+    public EventCallback ResetForm { get; set; }
+
     [Parameter]
-    public StudentDto StudentToEdit {get;set;}
-    
-     // id cũ để kiểm tra xem có cần reset form hay không
-    private string?  loadedStudentId ;
-    
-    
-    @* Btn update *@
+    public StudentDto StudentToEdit { get; set; }
+    // id cũ để kiểm tra xem có cần reset form hay không
+    private string? loadedStudentId;
+
+
     protected override void OnParametersSet()
     {
+        //
         Console.WriteLine("[OnParametersSet] - StudentToEdit: " + JsonSerializer.Serialize(StudentToEdit));
         if (StudentToEdit != null && StudentToEdit.MaSV != loadedStudentId)
         {
@@ -91,21 +94,31 @@
 
         }
     }
-
-    @* Nhan tu button them/cap nhat quan ly sinh vien *@
-    private async Task SubmitAsync(){
-        Console.WriteLine("Them thanh cong sinh vien");
+    @* protected override bool ShouldRender()
+    {
+        if(StudentToEdit != null  && StudentToEdit.MaSV != loadedStudentId)
+        {
+            return true;
+        }
+        return true;
+    } *@
+    private async Task SubmitAsync()
+    {
+        Console.WriteLine("[SUBMIT] - Thêm sinh viên thành công!");
         Console.WriteLine("[SUBMIT] - Dữ liệu sinh viên: " + JsonSerializer.Serialize(formModel));
-        await onSubmit.InvokeAsync(formModel);
 
-        @* clear form sau khi subit *@
+        await OnSubmit.InvokeAsync(formModel);
+
+        // clear form sau khi submit
         ClearForm();
 
     }
-    private void ClearForm(){
-        formModel=new StudentDto();
+    private void ClearForm()
+    {
+        formModel = new StudentDto();
+        loadedStudentId = null;
+        ResetForm.InvokeAsync();
     }
-
 
 
 }

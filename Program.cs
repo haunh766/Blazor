@@ -3,10 +3,10 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using buoi18.Service;
 
 // builder ra cacs tham so dong lenh, doc tham so tu appseting,..
 var builder = WebApplication.CreateBuilder(args);
-
 // đăng ký razor để dùng trang chủ của _host
 //  và blazorserver kích hoạt signalR , 
 builder.Services.AddRazorPages();
@@ -16,7 +16,7 @@ builder.Services.AddServerSideBlazor();
 builder.Services.AddHttpClient();
 
 // DI SERVICE. *** RAT QUAN TRONG
-
+builder.Services.AddScoped<IStudentApiService, StudentApiService>();
 // Đăng kí các dịch vụ 
 var app = builder.Build();
 

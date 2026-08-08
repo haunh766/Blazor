@@ -31,14 +31,12 @@
                         <td>@student.DiemHoa</td>
                         <td></td>
                         <td class="text-nowrap">
-                             <button class="btn btn-sm btn-warning"
+                            <button class="btn btn-sm btn-warning"
                             @onclick="() => EditStudent(student)"
                             >Sửa</button>
-                            <button class="btn btn-sm btn-danger"
-                            
-                            >Xoá</button>
+                            <button class="btn btn-sm btn-danger" 
+                            @onclick="()=>DeleteStudent(student.MaSV)">Xoá</button>
                         </td>
-                        
                     </tr>
                 }
             }
@@ -57,12 +55,22 @@
 @code{
     //Hung StudentDTO
     [Parameter]
-    public List<StudentDto> Students{get;set;}
+    public List<StudentDto> Students { get; set; }
+
     [Parameter]
-    public EventCallback<StudentDto> OnEdit{get;set;}
+    public EventCallback<StudentDto> OnEdit { get; set; }
+
+    [Parameter]
+    public EventCallback<string> OnDelete { get; set; }  
+
     private async Task EditStudent(StudentDto student)
     {
         await OnEdit.InvokeAsync(student);
+    }
+
+    private async Task DeleteStudent(string studentId)
+    {
+        await OnDelete.InvokeAsync(studentId);
     }
 
 }
